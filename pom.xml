@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.3.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.ejemplo3_springBoot</groupId>
+	<artifactId>ejemplo3_springBoot_jbossEAP</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>ejemplo3_springBoot_jbossEAP</name>
+	<description>Ejemplo de jboss Fuse with Spring boot</description>
+
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	
+	<packaging>war</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!--<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+				  <exclusion>
+   					<groupId>ch.qos.logback</groupId>
+   					<artifactId>logback-classic</artifactId>
+				</exclusion> 
+			</exclusions> -->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		
+	</dependencies>
+
+	<build>
+	<finalName>ejemplo3_springBoot_jbossEAP</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+			        <groupId>org.apache.maven.plugins</groupId>
+			        <artifactId>maven-compiler-plugin</artifactId>
+			        <configuration>
+			          <source>11</source>
+			          <target>11</target>
+			        </configuration>
+			</plugin>
+			<plugin>
+				        <artifactId>maven-war-plugin</artifactId>
+				    	<version>3.2.3</version>
+				        <configuration>
+				          <!-- Optionally specify where the web.xml file comes from -->
+				          <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+				          <!-- Optionally specify extra resources to include -->
+				          <webResources>
+				            <resource>
+				              <directory>src/main/resources</directory>
+				              <targetPath>WEB-INF</targetPath>
+				              <includes>
+				                <include>**/*</include>
+				              </includes>
+				            </resource>
+				          </webResources>
+				        </configuration>
+		     </plugin>
+		</plugins>
+	</build>
+
+</project>
